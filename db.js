@@ -20,6 +20,9 @@ async function connectDB() {
 async function queryDB(request) {
     var sql = "USE " + DB + " SELECT * FROM " + TABLE + " WHERE id=" + request.params['id'] + ";"
     await con.query(sql, function (err, result) {
+        if (err){
+            return err
+        }
         return result
     });
 }
@@ -27,7 +30,9 @@ async function queryDB(request) {
 async function queryStr(request) {
     var sql = request.params['query_str']
     await con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err){
+            return err
+        }
         return result;
     });
 }
