@@ -24,4 +24,4 @@ async function queryDB(request) {
     });
 }
 
-module.exports = {connectDB};
+module.exports = {connectDB, queryDB};
