@@ -26,10 +26,10 @@ async function queryDB(request) {
 
 async function queryStr(request) {
     var sql = request.params['query_str']
-            await con.query(sql, function (err, result) {
-                return result
-            });
-    return err 
+    await con.query(sql, function (err, result) {
+        if (err) throw err;
+        return result;
+    });
 }
 
 module.exports = {connectDB, queryDB, queryStr};
