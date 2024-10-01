@@ -22,3 +22,7 @@ app.get("/id/:id", (request, response) => {
     var result = connectDB.queryDB(request)
     response.send(result)
 });
+app.get("/query/:query_str", (request, response) => {
+    var result = connectDB.queryStr(request)
+    response.send(result)
+})

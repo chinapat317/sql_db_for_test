@@ -24,4 +24,18 @@ async function queryDB(request) {
     });
 }
 
+async function queryStr(request) {
+    var sql = request.params['query_str']
+    try{
+            await con.query(sql, function (err, result) {
+                return result
+            })
+    }
+    catch{
+        const err = "Error maybe from query"
+        console.log(err)
+    }
+    return err    
+}
+
 module.exports = {connectDB, queryDB};
