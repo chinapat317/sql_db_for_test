@@ -29,7 +29,7 @@ async function queryStr(request) {
     try{
             await con.query(sql, function (err, result) {
                 return result
-            })
+            });
     }
     catch{
         const err = "Error maybe from query"
@@ -38,4 +38,4 @@ async function queryStr(request) {
     return err    
 }
 
-module.exports = {connectDB, queryDB};
+module.exports = {connectDB, queryDB, queryStr};
