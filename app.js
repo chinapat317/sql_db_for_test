@@ -5,6 +5,8 @@ const connectDB = require("./db.js");
 const app = express ();
 app.use(cors());
 const PORT = process.env.PORT || 3000;
+connectDB.connectDB();
+
 
 
 app.listen(PORT, () => {
@@ -18,5 +20,4 @@ app.get("/status", (request, response) => {
 });
 app.get("/id/:id", (request, response) => {
     console.log(request.params['id'])
-    connectDB.connectDB(request);
- });
+});
