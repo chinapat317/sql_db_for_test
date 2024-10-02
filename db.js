@@ -22,10 +22,10 @@ async function queryDB(request) {
     await con.query(sql, function (err, result) {
         if (err){
             console.log(err)
-            return err
+            response.send(err)
         }
         console.log(JSON.stringify(result))
-        return result
+        response.send(result)
     });
 }
 
@@ -34,10 +34,10 @@ async function queryStr(request) {
     await con.query(sql, function (err, result) {
         if (err){
             console.log(err)
-            return err
+            response.send(err)
         }
         console.log(JSON.stringify(result))
-        return result;
+        response.send(result)
     });
 }
 

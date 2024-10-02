@@ -16,13 +16,12 @@ app.get("/status", (request, response) => {
    const status = {
       "Status": "Running"
    };
-   response.json(status);
+   response.send(status);
 });
 app.get("/id/:id", (request, response) => {
-    var result = connectDB.queryDB(request)
-    response.json(result.json)
+    connectDB.queryDB(request)
 });
 app.get("/query/:query_str", (request, response) => {
-    var result = connectDB.queryStr(request)
-    response.json(result)
+    connectDB.queryStr(request)
+    
 })
