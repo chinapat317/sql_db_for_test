@@ -18,9 +18,10 @@ async function connectDB() {
 }
 
 async function queryDB(request) {
-    var sql = "USE " + DB + " SELECT * FROM " + TABLE + " WHERE id=" + request.params['id'] + ";"
+    var sql = "SELECT rand FROM " + DB + "." + TABLE + " WHERE id=" + request.params['id']
     await con.query(sql, function (err, result) {
         if (err){
+            console.log(err)
             return err
         }
         console.log(JSON.stringify(result))
