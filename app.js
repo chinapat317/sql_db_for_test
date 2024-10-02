@@ -3,7 +3,6 @@ const cors = require('cors')
 const connectDB = require("./db.js");
 
 const app = express();
-app.use(express.json());
 app.use(cors());
 const PORT = process.env.PORT || 3000;
 connectDB.connectDB();
@@ -17,13 +16,13 @@ app.get("/status", (request, response) => {
    const status = {
       "Status": "Running"
    };
-   response.send(status);
+   response.json(status);
 });
 app.get("/id/:id", (request, response) => {
     var result = connectDB.queryDB(request)
-    response.send(result)
+    response.json(result.json)
 });
 app.get("/query/:query_str", (request, response) => {
     var result = connectDB.queryStr(request)
-    response.send(result)
+    response.json(result)
 })
