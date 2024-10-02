@@ -23,6 +23,7 @@ async function queryDB(request) {
         if (err){
             return err
         }
+        console.log(JSON.stringify(result))
         return result
     });
 }
@@ -31,8 +32,10 @@ async function queryStr(request) {
     var sql = request.params['query_str']
     await con.query(sql, function (err, result) {
         if (err){
+            console.log(err)
             return err
         }
+        console.log(JSON.stringify(result))
         return result;
     });
 }
