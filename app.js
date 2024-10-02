@@ -19,9 +19,8 @@ app.get("/status", (request, response) => {
    response.send(status);
 });
 app.get("/id/:id", (request, response) => {
-    connectDB.queryDB(request)
+    connectDB.queryDB(request, response)
 });
 app.get("/query/:query_str", (request, response) => {
-    connectDB.queryStr(request)
-    
+    connectDB.queryStr(request, response)
 })

@@ -17,7 +17,7 @@ async function connectDB() {
       });
 }
 
-async function queryDB(request) {
+async function queryDB(request, response) {
     var sql = "SELECT rand FROM " + DB + "." + TABLE + " WHERE id=" + request.params['id']
     await con.query(sql, function (err, result) {
         if (err){
@@ -29,7 +29,7 @@ async function queryDB(request) {
     });
 }
 
-async function queryStr(request) {
+async function queryStr(request, response) {
     var sql = request.params['query_str']
     await con.query(sql, function (err, result) {
         if (err){
